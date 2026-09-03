@@ -1,8 +1,11 @@
 import UpdateSettingsForm from "../features/settings/UpdateSettingsForm";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 
 function Settings() {
+  useDocumentTitle("Settings");
+
   return (
     <Row type="vertical">
       <Heading as="h1">Update hotel settings</Heading>

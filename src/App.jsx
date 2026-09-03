@@ -1,21 +1,23 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router";
+import { lazy } from "react";
 import { Toaster } from "react-hot-toast";
-import Dashboard from "./pages/Dashboard";
-import Bookings from "./pages/Bookings";
-import Cabins from "./pages/Cabins";
-import Users from "./pages/Users";
-import Settings from "./pages/Settings";
-import Account from "./pages/Account";
-import Login from "./pages/Login";
-import PageNotFound from "./pages/PageNotFound";
-import GlobalStyles from "./styles/GlobalStyles";
-import AppLayout from "./ui/AppLayout";
-import Booking from "./pages/Booking";
-import CheckIn from "./pages/CheckIn";
-import ProtectedRout from "./ui/ProtectedRout";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { DarkModeProvider } from "./context/DarkModeContext";
+
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Bookings = lazy(() => import("./pages/Bookings"));
+const Cabins = lazy(() => import("./pages/Cabins"));
+const Users = lazy(() => import("./pages/Users"));
+const Settings = lazy(() => import("./pages/Settings"));
+const Account = lazy(() => import("./pages/Account"));
+const Login = lazy(() => import("./pages/Login"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+const GlobalStyles = lazy(() => import("./styles/GlobalStyles"));
+const AppLayout = lazy(() => import("./ui/AppLayout"));
+const Booking = lazy(() => import("./pages/Booking"));
+const CheckIn = lazy(() => import("./pages/CheckIn"));
+const ProtectedRout = lazy(() => import("./ui/ProtectedRout"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,7 +45,7 @@ function App() {
             >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
-              <Route path="bookings" element={<Bookings />} />
+              <Route path="bookings" element={<Bookings />} />  
               <Route path="bookings/:bookingId" element={<Booking />} />
               <Route path="checkin/:bookingId" element={<CheckIn />} />
               <Route path="cabins" element={<Cabins />} />

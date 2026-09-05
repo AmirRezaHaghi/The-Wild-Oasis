@@ -66,7 +66,7 @@ function AppLayout() {
       </StyledAppLayout>
       <Footer>
         <Bullet />
-        <span>BUILT IN PIXEL BY PIXEL BY AMIRREZA</span>
+        <span>BUILT PIXEL BY PIXEL BY AMIRREZA</span>
       </Footer>
     </>
   );
